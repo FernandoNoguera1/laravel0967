@@ -3,6 +3,8 @@
 // use App\Https\Controllers\ProductController;
 
 use App\Http\Controllers\CarsController;
+use App\Http\Controllers\CellphoneController;
+use App\Http\Controllers\PrimenumberController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
@@ -28,4 +30,12 @@ Route::post('/frmproducto-store',[ProductController::class,'productoStore'])->na
 
 Route::get('/frmCars',[CarsController::class,'formularioCars']);
 Route::post('/frmCars-store',[CarsController::class,'carsStore'])->name('cars.store');
+
+
+Route::get('/frmCellphone',[CellphoneController::class,'formularioCellphone']);
+Route::post('/frmCellphone-store',[CellphoneController::class,'cellphoneStore'])->name('cellphone.store');
+
+
+Route::get('/primo',[PrimenumberController::class,'formularioPrimo'])->name('primo.formulario');
+Route::post('/primo-store',[PrimenumberController::class,'primoStore'])->name('primo.store');
 

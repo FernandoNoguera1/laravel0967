@@ -16,7 +16,7 @@ class CarsController extends Controller
 
 
 
-     public function productoStore(Request $request){
+     public function carsStore(Request $request){
 
         $producto = new Cars();
         $producto->name=$request->name;
