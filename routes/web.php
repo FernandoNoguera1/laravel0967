@@ -4,6 +4,9 @@
 
 use App\Http\Controllers\CarsController;
 use App\Http\Controllers\CellphoneController;
+use App\Http\Controllers\CuadraticaController;
+use App\Http\Controllers\EjerciciospagController;
+use App\Http\Controllers\NumerosamigosController;
 use App\Http\Controllers\PrimenumberController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
@@ -35,7 +38,17 @@ Route::post('/frmCars-store',[CarsController::class,'carsStore'])->name('cars.st
 Route::get('/frmCellphone',[CellphoneController::class,'formularioCellphone']);
 Route::post('/frmCellphone-store',[CellphoneController::class,'cellphoneStore'])->name('cellphone.store');
 
+Route::get('/numerosamigos',[NumerosamigosController::class,'numerosamigos']);
+Route::post('/numerosamigos-store',[NumerosamigosController::class,'ami'])->name('numeros.amigos');
+
 
 Route::get('/primo',[PrimenumberController::class,'formularioPrimo'])->name('primo.formulario');
 Route::post('/primo-store',[PrimenumberController::class,'primoStore'])->name('primo.store');
+
+Route::get('/frmCuadratica',[CuadraticaController::class,'formularioCuadratica'])->name('Cuadratica.formulario');
+Route::post('/frmCuadratica-store',[CuadraticaController::class,'raiz'])->name('cuadratica.store');
+
+Route::get('/pagina', function () {
+    return view('ejerciciospag');
+});
 

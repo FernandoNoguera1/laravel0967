@@ -40,4 +40,5 @@ class PrimenumberController extends Controller
         }
         return true;
     }
+    
 }
