@@ -5,13 +5,14 @@
 use App\Http\Controllers\CarsController;
 use App\Http\Controllers\CellphoneController;
 use App\Http\Controllers\CuadraticaController;
+use App\Http\Controllers\CursoController;
 use App\Http\Controllers\EjerciciospagController;
 use App\Http\Controllers\NumerosamigosController;
 use App\Http\Controllers\PrimenumberController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
-
+use App\Models\curso;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -45,10 +46,14 @@ Route::post('/numerosamigos-store',[NumerosamigosController::class,'ami'])->name
 Route::get('/primo',[PrimenumberController::class,'formularioPrimo'])->name('primo.formulario');
 Route::post('/primo-store',[PrimenumberController::class,'primoStore'])->name('primo.store');
 
-Route::get('/frmCuadratica',[CuadraticaController::class,'formularioCuadratica'])->name('Cuadratica.formulario');
-Route::post('/frmCuadratica-store',[CuadraticaController::class,'raiz'])->name('cuadratica.store');
+// Route::get('/frmCuadratica',[CuadraticaController::class,'formularioCuadratica'])->name('Cuadratica.formulario');
+// Route::post('/frmCuadratica-store',[CuadraticaController::class,'raiz'])->name('cuadratica.store');
 
 Route::get('/pagina', function () {
     return view('ejerciciospag');
 });
+
+Route::get('/curso/create',[CursoController::class,'create']);
+Route::post('/curso/store',[CursoController::class,'store'])->name('curso.store');
+Route::get('/cursos/listar',[CursoController::class,'index'])->name('curso.index');
 

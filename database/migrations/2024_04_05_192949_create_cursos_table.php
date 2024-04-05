@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('numerosamigos', function (Blueprint $table) {
+        Schema::create('cursos', function (Blueprint $table) {
             $table->id();
-            $table->integer('numero1');
-            $table->integer('numero2');
-            $table->integer('numero3');
+            $table->string('name');
+            $table->text('descripcion');
+            $table->string('urlPdf')->nullable();
             $table->timestamps();
         });
     }
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('numerosamigos');
+        Schema::dropIfExists('cursos');
     }
 };
