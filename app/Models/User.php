@@ -12,8 +12,29 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    public function profile(){
+        //$profile = Profile::where('user_id',$this->id)->first();
+        //$profile = Profile::where('foreing_key',$this->local_key)->first();
+        //return $this->hasOne('App\Models\Profile','foreing_key','local_key');
+        return $this->hasOne('App\Models\Profile'); }
+
+        // Relacion Uno a Muchos
+      public function posts(){
+        return $this->hasMany('App\Models\posts');//RECUPERAR LA COLECCION DE POST QUE PERTENECEN A ESTE USUARIO
+        
+    }
+    public function videos(){
+        return $this->hasMany('App\Models\user');//RECUPERAR LA COLECCION DE POST QUE PERTENECEN A ESTE USUARIO
+        
+    }
+
+    //Relacion muchos a muchos
+    public function roles(){
+        return $this->belongsToMany('App\Models\Role');
+    }
+
     /**
-     * The attributes that are mass assignable.
+     * Los atributos asignables en masa.
      *
      * @var array<int, string>
      */
@@ -24,7 +45,7 @@ class User extends Authenticatable
     ];
 
     /**
-     * The attributes that should be hidden for serialization.
+     * Los atributos que deben ocultarse para la serialización.
      *
      * @var array<int, string>
      */
@@ -34,7 +55,7 @@ class User extends Authenticatable
     ];
 
     /**
-     * The attributes that should be cast.
+     * Los atributos que se deben emitir.
      *
      * @var array<string, string>
      */
@@ -42,4 +63,6 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+
 }

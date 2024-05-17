@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Curso;
+use App\Models\profile;
+use App\Models\User;
+use App\Models\posts;
+use App\Models\video;
 
 class CursoController extends Controller
 {
@@ -14,8 +18,23 @@ class CursoController extends Controller
 
      public function index(){
 
-        $cursos = Curso::orderBy('id', 'desc')->get();
-         return view('curso.listar', compact('cursos'));
+        //$cursos = Curso::orderBy('id', 'desc')->get();
+         //return view('curso.listar', compact('cursos'));
+         // $temp=User::find(1);
+    // return $temp->profile;
+
+    $temp= Profile::find(1);
+    return $temp->user;
+
+    $temp = posts::find(1);
+    return $temp->user;
+
+    $temp = User::find(1);
+    return $temp->profile;
+
+    $temp = video::find(1);
+    return $temp->user;
+ 
 
     }
 

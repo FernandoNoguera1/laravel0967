@@ -10,6 +10,7 @@ use App\Http\Controllers\EjerciciospagController;
 use App\Http\Controllers\NumerosamigosController;
 use App\Http\Controllers\PrimenumberController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 use App\Models\curso;
@@ -60,3 +61,8 @@ Route::get('curso/{curso}',[CursoController::class,'show'])->name('curso.show');
 Route::put('curso/{curso}',[CursoController::class,'update'])->name('curso.update');
 Route::delete('curso/{curso}',[CursoController::class,'destroy'])->name('curso.destroy');
 Route::get('curso/{curso}/editar',[CursoController::class,'edit'])->name('curso.edit');
+
+////////////////////         PROFILE          ///////////////////////
+
+Route::get('profile/create',[ProfileController::class,'create']);
+Route::post('profile/store', [ProfileController::class,'store'])->name('profile.store');
